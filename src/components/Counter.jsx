@@ -6,7 +6,7 @@ import {counterActions} from "../store/reducers/counterReducer";
 const Counter = () => {
     const dispatch = useDispatch()
     const value = useSelector(getValue)
-    const {increment , decrement} = counterActions
+    const {increment, decrement} = counterActions
 
     const onIncrement = () => {
         dispatch(increment())
@@ -17,9 +17,9 @@ const Counter = () => {
 
     return (
         <div>
-            <h1>{value}</h1>
-            <button onClick={onIncrement}>incr</button>
-            <button onClick={onDecrement}>decr</button>
+            <h1 data-testid={'value-title'}>Value: {value}</h1>
+            <button data-testid={'increment-btn'} onClick={onIncrement}>incr</button>
+            <button data-testid={'decrement-btn'} onClick={onDecrement}>decr</button>
         </div>
     );
 };
