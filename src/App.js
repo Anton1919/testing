@@ -1,5 +1,8 @@
 import './App.css';
 import {useEffect, useState} from "react";
+import {Route, Routes, Link} from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
     const [data, setData] = useState(null)
@@ -24,6 +27,13 @@ function App() {
             <h1>Hello world</h1>
             <button data-testid='toggle-btn' onClick={onClick}>Click me</button>
             <input onChange={e => setValue(e.currentTarget.value)} type="text" placeholder='input value...'/>
+            <br/>
+            <Link to={'/'} data-testid={'main-link'}>Main</Link>
+            <Link to={'/about'} data-testid={'about-link'}>About</Link>
+            <Routes>
+                <Route path={'/'} element={<MainPage/>}/>
+                <Route path={'/about'} element={<AboutPage/>}/>
+            </Routes>
         </div>
     );
 }
